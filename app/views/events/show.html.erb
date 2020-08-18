@@ -9,6 +9,15 @@
         <li> <%= @event.event_date.strftime("%B %d, %Y") %> </li>
         <li>BY: <%= @event.creator.to_s %> </li>
       </ul>
-      
     </div>
+
+  <div>
+    <% @event.users.each do |user| %>
+      <div>
+        <ul>
+          <li> <%= @event.attendees %> </li>
+        </ul>
+      </div>
+    <% end %>
+</div>
 </div>
