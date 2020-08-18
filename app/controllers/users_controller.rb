@@ -9,7 +9,9 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1
-  def show; end
+  def show
+    @user = User.find(params[:id])
+  end
 
   # GET /users/new
   def new
@@ -21,13 +23,6 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    # @user = User.new(user_params)
-    #
-    # if @user.save
-    #   redirect_to @user, notice: 'User was successfully created.'
-    # else
-    #   render :new
-    # end
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id

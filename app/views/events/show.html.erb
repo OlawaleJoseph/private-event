@@ -1,0 +1,14 @@
+<h1>Events#show</h1>
+
+<div>
+    <div>
+      <ul>
+        <li> <strong> <%= @event.title %> </strong> </li>
+        <li> <%= @event.description %> </li>
+        <li> <%= @event.location %> </li>
+        <li> <%= @event.event_date.strftime("%B %d, %Y") %> </li>
+        <li>BY: <%= @event.creator.to_s %> </li>
+      </ul>
+      
+    </div>
+</div>

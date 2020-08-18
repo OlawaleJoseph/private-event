@@ -1,19 +1,16 @@
+<h1>Events#index</h1>
+<p>Find me in app/views/events/index.html.erb</p>
 
-<div>
-  <% @user.events.each do |event| %>
+<% @events.each do |event| %>
     <div>
       <ul>
         <li> <strong> <%= event.title %> </strong> </li>
         <li> <%= event.description %> </li>
         <li> <%= event.location %> </li>
         <li> <%= event.event_date.strftime("%B %d, %Y") %> </li>
-        <li> <%= @user.to_s %> </li>
+        <li>By: <%= event.creator.to_s %> </li>
       </ul>
-      
+      <br>
     </div>
 
   <% end %>
-</div>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
