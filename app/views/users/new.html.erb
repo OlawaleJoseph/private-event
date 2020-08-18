@@ -1,0 +1,19 @@
+<h1>Users#new</h1>
+<div>
+  <%= form_with model: @user do |form| %>
+    <%= form.label :first_name %>
+    <br>
+    <%= form.text_field :first_name %>
+    <br>
+    <%= form.label :last_name %>
+    <br>
+    <%= form.text_field :last_name %>
+    <br>
+    <%= form.label :username %>
+    <br>
+    <%= form.text_field :username %>
+    <br>
+    <%= form.submit "Create" %>
+  <% end %>
+
+</div>
