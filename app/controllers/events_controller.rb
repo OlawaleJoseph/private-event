@@ -19,8 +19,19 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @events = Event.upcoming
+    @pasts = Event.past
   end
+
+  def attend
+    @event = Event.find(params[:id])
+    if @event.invitations.as_json.include?(current_user.as_json)
+    flash[:notice] = 'You have already registered for this event'
+   else @event.invitations << current_user
+   end
+   redirect_to event_path(@event)
+ end
+
 
   protected
   def event_params

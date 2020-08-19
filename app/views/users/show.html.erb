@@ -9,11 +9,31 @@
         <li> <%= event.event_date.strftime("%B %d, %Y") %> </li>
         <li> <%= @user.to_s %> </li>
       </ul>
-      
+
     </div>
 
   <% end %>
 </div>
 
+<div>
+  <h3>Events Upcoming to</h3>
+  <ol>
+  <% @user.upcoming_events.each do|occasion| %>
+  <li><%= occasion.title %> --<%= occasion.event_date %></li>
+  <%end%>
+  </ol>
+      <br>
+</div>
+
+<div>
+  <h3>Events Past</h3>
+  <ol>
+  <% @user.previous_events.each do|occasion| %>
+  <li><%= occasion.title %> --<%= occasion.event_date %></li>
+  <%end%>
+  </ol>
+      <br>
+</div>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Events', events_path %>

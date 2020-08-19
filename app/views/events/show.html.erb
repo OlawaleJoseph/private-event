@@ -11,13 +11,18 @@
       </ul>
     </div>
 
-  <div>
-    <% @event.users.each do |user| %>
-      <div>
-        <ul>
-          <li> <%= @event.attendees %> </li>
-        </ul>
-      </div>
-    <% end %>
-</div>
+<% if current_user %>
+ <div> <%= form_with(url: "/events/#{@event.id}/attend", local: true) do |form| %>
+    <div class="actions">
+      <%= form.submit "Attend"%>
+    </div>
+     <% end %>
+  </div>
+<% end %>
+
+    <h3>Attendees</h3>
+      <% @event.invitations.each do |invitation| %>
+       <p> <%= invitation.to_s %></p>
+      <% end %>
+
 </div>
