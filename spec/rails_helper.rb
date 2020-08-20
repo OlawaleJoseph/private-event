@@ -73,3 +73,10 @@ RSpec.configure do |config|
     end
   end
 end
+
+def create_user_and_log_in
+  create :user, first_name: 'user', last_name: 'test', username: 'testuser'
+  visit new_user_session_path
+  fill_in :username, with: 'testuser'
+  click_on 'Create User'
+end
