@@ -1,0 +1,38 @@
+<h1>Events#index</h1>
+<p>Find me in app/views/events/index.html.erb</p>
+
+<h3> Upcoming events to attend </h3>
+<% @events.each do |event| %>
+
+    <div>
+      <ul>
+        <li> <strong> <%= event.title %> </strong> </li>
+        <li> <%= event.description %> </li>
+        <li> <%= event.location %> </li>
+        <li> <%= event.event_date.strftime("%B %d, %Y") %> </li>
+        <li>By: <%= event.creator.to_s %> </li>
+      </ul>
+       <div> <%= form_with(url: "/events/#{event.id}/attend", local: true) do |form| %>
+       <div class="actions">
+        <%= display_attend_button(form) %>
+       </div>
+       <% end %>
+     </div>
+      <br>
+    </div>
+
+  <% end %>
+
+<h3> Past events </h3>
+  <% @pasts.each do |past| %>
+      <div>
+        <ul>
+          <li> <strong> <%= past.title %> </strong> </li>
+          <li> <%= past.description %> </li>
+          <li> <%= past.location %> </li>
+          <li> <%= past.event_date.strftime("%B %d, %Y") %> </li>
+          <li>By: <%= past.creator.to_s %> </li>
+        </ul>
+      </div>
+
+    <% end %>

@@ -1,0 +1,11 @@
+
+<h1>Log In</h1>
+<%= form_tag sessions_path do %>
+  <div>
+    <%= label_tag :username %><br>
+    <%= text_field_tag :username %>
+  </div>
+  <div>
+    <%= submit_tag "Log In" %>
+  </div>
+<% end %>
