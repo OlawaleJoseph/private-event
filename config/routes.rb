@@ -3,9 +3,6 @@
 Rails.application.routes.draw do
   resources :sessions, only: %i[new create destroy]
   resources :events, only: %i[new create show index]
-  # get 'sessions/new'
-  # get 'sessions/create'
-  # get 'sessions/destroy'
   post '/events/:id/attend', to: 'events#attend' 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
