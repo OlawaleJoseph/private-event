@@ -48,15 +48,4 @@ RSpec.feature "Users", type: :feature do
     end
 
   end
-
-  context "destroy user" do
-    scenario "should be successful" do
-      user = User.create(first_name: 'Sam', last_name: 'Sam', username: 'sam.doe@example.com')
-      visit users_path
-      # visit 'users'
-      # expect { click_link 'Destroy' }.to change(User, :count).by(-1)
-        click_link 'Destroy'
-      expect(page).to have_content 'User was successfully destroyed.'
-    end
-  end
 end

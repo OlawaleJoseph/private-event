@@ -15,14 +15,4 @@ RSpec.describe UsersController, type: :controller do
       expect(assigns(:user)).to be_a_new(User)
     end
   end
-
-  describe "#create" do
-    # let(:user) { User.new({ first_name: 'wales', last_name: 'adeks', username: 'wadeks' }) }
-
-    # it "has a 400 status code" do
-    #   post :create :user
-    #   puts response.body
-    #   expect{:user.save}.to raise_error
-    # end
-  end
 end

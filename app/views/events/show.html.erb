@@ -12,9 +12,10 @@
     </div>
 
 <% if current_user %>
- <div> <%= form_with(url: "/events/#{@event.id}/attend", local: true) do |form| %>
+ <div>
+ <%= form_with(url: "/events/#{@event.id}/attend", local: true) do |form| %>
     <div class="actions">
-      <%= form.submit "Attend"%>
+      <%= display_attend_button(form) %>
     </div>
      <% end %>
   </div>
